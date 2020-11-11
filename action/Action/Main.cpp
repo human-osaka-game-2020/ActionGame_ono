@@ -12,8 +12,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetOutApplicationLogValidFlag(FALSE);
 	ChangeWindowMode(TRUE);
 	SetGraphMode(WINDOW_W, WINDOW_H, 32);
-	SetBackgroundColor(255, 255, 255);
-	SetMainWindowText("");
+	SetBackgroundColor(0, 0, 120);
+	SetMainWindowText("アクションゲーム");
 	if (DxLib_Init() == -1)		
 	{
 		return -1;			// エラーが起きたら直ちに終了
@@ -38,9 +38,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 		clsDx();
 
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
+		LoadGraphScreen(50, 100, "data/Unitychan_Blink_1.png", TRUE); // 画像を描画する
+
+		GameProcessing();
+
+		DrawProcessing();
+
 		// 以下、描画処理
 		// ----------------------------------------------------
 		DrawInformation();
+		
+		
 
 		// ＤＸライブラリを使う上で、モニターへゲーム画面を表示するためのお約束
 		// 必ずループの最後で呼び出す
