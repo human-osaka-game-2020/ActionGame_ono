@@ -1,7 +1,8 @@
+
 #include "DxLib.h"
-#include "Main.h"
-#include "InputManager.h"
-#include "Fade.h"
+#include "../Difinition.h"
+#include "../Manager/InputManager.h"
+#include "../Function/Fade.h"
 #include "Processing.h"
 #include <stdio.h>
 #include <time.h>
@@ -10,6 +11,8 @@
 // グローバル変数
 // ================================================================================
 Fade fade;
+FadeType fadeScene = Wait;
+InputManager* pInputMng = InputManager::GetInstance();
 
 // ================================================================================
 // ゲーム処理
@@ -18,32 +21,23 @@ void GameProcessing()
 {
 	if (fadeScene == Wait)
 	{
-		if (CheckHitKey(KEY_INPUT_RETURN))
+		if (pInputMng->IsPushed(KeyType_Enter))
 		{
-			fade.Start(fadeIn);
+			fade.Start(FadeType::FadeIn);
 			fadeScene = FadeIn;
 		}
 		if (CheckHitKey(KEY_INPUT_SPACE))
 		{
-			fade.Start(fadeOut);
+			fade.Start(FadeType::FadeOut);
 			fadeScene = FadeOut;
 		}
 	}
 
 	fade.Exec(2.0f);
 
-	if (fadeScene == FadeIn)
+	if (fadeScene == FadeIn || fadeScene == FadeOut)
 	{
-		fade.IsFading();
-		if (fade.m_isFading == false)
-		{
-			fadeScene = Wait;
-		}
-	}
-	if (fadeScene == FadeOut)
-	{
-		fade.IsFading();
-		if (fade.m_isFading == false)
+		if (fade.IsFading())
 		{
 			fadeScene = Wait;
 		}

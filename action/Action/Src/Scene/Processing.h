@@ -1,3 +1,4 @@
+
 #ifndef PROCESSING_H
 #define PROCESSING_H
 
@@ -14,13 +15,5 @@ void DrawProcessing();
 // ================================================================================
 // フェード処理シーン分け
 // ===============================================================================
-enum FadeScene
-{
-	Wait,
-	FadeIn,
-	FadeOut
-};
-
-static FadeScene fadeScene = Wait;
 
 #endif

@@ -1,9 +1,8 @@
-#include "Main.h"
-#include "InputManager.h"
-#include "DrawManager.h"
-#include "Processing.h"
+
+#include "Difinition.h"
+#include "../Src/Manager/InputManager.h"
+#include "../Src/Scene/Processing.h"
 #include <stdio.h>
-#include <time.h>
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -11,7 +10,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     // ＤＸライブラリ初期化処理
 	SetOutApplicationLogValidFlag(FALSE);
 	ChangeWindowMode(TRUE);
-	SetGraphMode(WINDOW_W, WINDOW_H, 32);
+	SetGraphMode(WindowWidth, WindowHeight, 32);
 	SetBackgroundColor(0, 0, 120);
 	SetMainWindowText("アクションゲーム");
 	if (DxLib_Init() == -1)		
@@ -22,13 +21,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	// 各種初期化処理
 	// ----------------------------------------------------
-	InputInit();			// 入力処理初期化関数の呼び出し
-	DrawInit();				// 描画処理初期化関数の呼び出し
 
 	// 以下、毎フレーム更新する処理
 	// ----------------------------------------------------
-	InputUpdate();	// 入力処理更新関数の呼び出し
-
 
 	// メインループ
 	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
@@ -47,8 +42,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		// 以下、描画処理
 		// ----------------------------------------------------
-		DrawInformation();
-		
 		
 
 		// ＤＸライブラリを使う上で、モニターへゲーム画面を表示するためのお約束
