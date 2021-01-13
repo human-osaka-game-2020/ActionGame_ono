@@ -18,6 +18,29 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\Difinition.h" />
+    <ClInclude Include="Src\Function\Fade.h" />
+    <ClInclude Include="Src\KeyDefinition.h" />
+    <ClInclude Include="Src\Manager\InputManager.h" />
+    <ClInclude Include="Src\Manager\SceneManager.h" />
+    <ClInclude Include="Src\SceneDifinition.h" />
+    <ClInclude Include="Src\Scene\InGameScene.h" />
+    <ClInclude Include="Src\Scene\ResultScene.h" />
+    <ClInclude Include="Src\Scene\SceneBase.h" />
+    <ClInclude Include="Src\Scene\TitleScene.h" />
+    <ClInclude Include="Src\Singleton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Function\Fade.cpp" />
+    <ClCompile Include="Src\Manager\InputManager.cpp" />
+    <ClCompile Include="Src\Scene\InGameScene.cpp" />
+    <ClCompile Include="Src\Scene\ResultScene.cpp" />
+    <ClCompile Include="Src\Scene\SceneBase.cpp" />
+    <ClCompile Include="Src\Scene\TitleScene.cpp" />
+    <ClCompile Include="Src\WinMain.cpp" />
+    <ClCompile Include="Src\Manager\SceneManager.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -150,21 +173,6 @@
       <AdditionalLibraryDirectories>$(DxLib)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="DrawManager.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Processing.cpp" />
-    <ClCompile Include="Fade.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="DrawManager.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="KeyDefinition.h" />
-    <ClInclude Include="Main.h" />
-    <ClInclude Include="Processing.h" />
-    <ClInclude Include="Fade.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

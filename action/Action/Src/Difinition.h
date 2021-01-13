@@ -3,7 +3,7 @@
 #define DIFINITION_H
 
 
-static const int WindowWidth = 640;
-static const int WindowHeight = 480;
+static const int WindowWidth = 1024;
+static const int WindowHeight = 512;
 
 #endif // !DIFINITION_H

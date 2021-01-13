@@ -1,8 +1,8 @@
 
+#include "DxLib.h"
 #include "Difinition.h"
 #include "../Src/Manager/InputManager.h"
-#include "../Src/Scene/Processing.h"
-#include <stdio.h>
+#include "../Src/Manager/SceneManager.h"
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -19,36 +19,34 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	// 各種初期化処理
-	// ----------------------------------------------------
-
-	// 以下、毎フレーム更新する処理
-	// ----------------------------------------------------
+	// 管理クラスの作成
+	InputManager::CreateInstansce();
+	SceneManager::CreateInstansce();
 
 	// メインループ
-	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
+	while (true)
 	{
-		// ＤＸライブラリを使う上で、１フレーム分の処理を始めるためのお約束
-		// ----------------------------------------------------
+		if (ProcessMessage() != 0) { break; }
+
+		// 画面クリア
 		ClearDrawScreen();
 		clsDx();
 
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
-		LoadGraphScreen(50, 100, "data/Unitychan_Blink_1.png", TRUE); // 画像を描画する
+		// 処理
+		InputManager::GetInstance()->Update();
+		SceneManager::GetInstance()->Exec();
 
-		GameProcessing();
+		// 描画
+		SceneManager::GetInstance()->Draw();
 
-		DrawProcessing();
-
-		// 以下、描画処理
-		// ----------------------------------------------------
-		
-
-		// ＤＸライブラリを使う上で、モニターへゲーム画面を表示するためのお約束
-		// 必ずループの最後で呼び出す
-		// ----------------------------------------------------
+		// 画面更新
 		ScreenFlip();
 	}
+
+
+	// 管理クラスの後始末
+	SceneManager::DestroyInstance();
+	InputManager::DestroyInstance();
 	
 	WaitKey();				// キー入力待ち
 
