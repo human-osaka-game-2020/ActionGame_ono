@@ -36,7 +36,10 @@ void ResultScene::Exec()
 
 void ResultScene::Draw()
 {
-	DrawString(20, 20, "ResultScene", GetColor(0, 0, 0));
+	SetFontSize(64);
+	DrawString(216, 216, "ゲームクリア!!", GetColor(200, 150, 150));
+	SetFontSize(24);
+	DrawString(512, 324, "Enterキーでタイトルにもどるよ!", GetColor(255, 200, 200));
 }
 
 bool ResultScene::IsEnd() const

@@ -30,7 +30,7 @@ enum InputState
 // キーの種類に対応する、実際の入力配列
 const int KEY_ASSIGN[KeyType_Max] =
 {
-	KEY_INPUT_UP,		// KeyType_Up
+	KEY_INPUT_SPACE,		// KeyType_Up
 	KEY_INPUT_DOWN,		// KeyType_Down
 	KEY_INPUT_LEFT,		// KeyType_Left
 	KEY_INPUT_RIGHT,	// KeyType_Right

@@ -11,7 +11,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetOutApplicationLogValidFlag(FALSE);
 	ChangeWindowMode(TRUE);
 	SetGraphMode(WindowWidth, WindowHeight, 32);
-	SetBackgroundColor(0, 0, 120);
+	SetBackgroundColor(100, 100, 120);
 	SetMainWindowText("アクションゲーム");
 	if (DxLib_Init() == -1)		
 	{

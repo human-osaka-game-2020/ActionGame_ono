@@ -10,7 +10,7 @@ Fade::Fade()
 {
 	m_Alpha = 0.0f;
 	m_IsFading = false;
-	m_FadeType = Wait;
+	m_FadeType = FadeType::Wait;
 }
 
 Fade::~Fade()
@@ -19,14 +19,14 @@ Fade::~Fade()
 
 void Fade::Start(FadeType fadeType_)
 {
-	m_Alpha = (fadeType_ == FadeIn) ? 255.0f : 0.0f;
+	m_Alpha = (fadeType_ == FadeType::FadeIn) ? 255.0f : 0.0f;
 	m_IsFading = true;
 	m_FadeType = fadeType_;
 }
 
 void Fade::Draw()
 {
-	if (m_FadeType == FadeIn ||m_FadeType == FadeOut)
+	if (m_FadeType == FadeType::FadeIn ||m_FadeType == FadeType::FadeOut)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, m_Alpha);
 		DrawBox(0, 0, WindowWidth, WindowHeight, GetColor(0, 0, 0), TRUE);
@@ -35,7 +35,7 @@ void Fade::Draw()
 
 void Fade::Exec(float fadeSpeed_)
 {
-	if (m_FadeType == FadeIn)
+	if (m_FadeType == FadeType::FadeIn)
 	{
 		m_Alpha -= fadeSpeed_;
 		if (m_Alpha <= 0.0f)
@@ -43,7 +43,7 @@ void Fade::Exec(float fadeSpeed_)
 			m_IsFading = false;
 		}
 	}
-	else if (m_FadeType == FadeOut)
+	else if (m_FadeType == FadeType::FadeOut)
 	{
 		m_Alpha += fadeSpeed_;
 		if (m_Alpha >= 255.0f)

@@ -33,7 +33,10 @@ void TitleScene::Exec()
 
 void TitleScene::Draw()
 {
-	DrawString(20, 20, "TitleScene", GetColor(0, 0, 0));
+	SetFontSize(64);
+	DrawString(216, 216, "アクションゲーム", GetColor(0, 0, 0));
+	SetFontSize(24);
+	DrawString(512, 324, "Enterキーで遊べるよ!", GetColor(255, 200, 200));
 }
 
 bool TitleScene::IsEnd() const

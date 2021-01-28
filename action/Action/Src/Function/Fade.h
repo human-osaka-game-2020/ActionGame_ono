@@ -2,7 +2,7 @@
 #ifndef FADE_H
 #define FADE_H
 
-enum FadeType
+enum class FadeType
 {
 	Wait,
 	FadeIn,

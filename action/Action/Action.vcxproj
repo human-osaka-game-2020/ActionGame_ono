@@ -20,24 +20,32 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Difinition.h" />
+    <ClInclude Include="Src\Function\Camera.h" />
     <ClInclude Include="Src\Function\Fade.h" />
     <ClInclude Include="Src\KeyDefinition.h" />
     <ClInclude Include="Src\Manager\InputManager.h" />
     <ClInclude Include="Src\Manager\SceneManager.h" />
+    <ClInclude Include="Src\Manager\TextureManager.h" />
+    <ClInclude Include="Src\Object\Player.h" />
     <ClInclude Include="Src\SceneDifinition.h" />
     <ClInclude Include="Src\Scene\InGameScene.h" />
     <ClInclude Include="Src\Scene\ResultScene.h" />
     <ClInclude Include="Src\Scene\SceneBase.h" />
     <ClInclude Include="Src\Scene\TitleScene.h" />
     <ClInclude Include="Src\Singleton.h" />
+    <ClInclude Include="Src\Stage\Stage.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Function\Camera.cpp" />
     <ClCompile Include="Src\Function\Fade.cpp" />
     <ClCompile Include="Src\Manager\InputManager.cpp" />
+    <ClCompile Include="Src\Manager\TextureManager.cpp" />
+    <ClCompile Include="Src\Object\Player.cpp" />
     <ClCompile Include="Src\Scene\InGameScene.cpp" />
     <ClCompile Include="Src\Scene\ResultScene.cpp" />
     <ClCompile Include="Src\Scene\SceneBase.cpp" />
     <ClCompile Include="Src\Scene\TitleScene.cpp" />
+    <ClCompile Include="Src\Stage\Stage.cpp" />
     <ClCompile Include="Src\WinMain.cpp" />
     <ClCompile Include="Src\Manager\SceneManager.cpp" />
   </ItemGroup>

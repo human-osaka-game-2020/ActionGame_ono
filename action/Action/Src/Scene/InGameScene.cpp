@@ -3,6 +3,13 @@
 #include "DxLib.h"
 #include "../Manager/SceneManager.h"
 #include "../Manager/InputManager.h"
+#include "../Object/Player.h"
+#include "../Stage/Stage.h"
+#include "../Function/Camera.h"
+
+static Player player;
+static Stage stage;
+static Camera camera;
 
 enum
 {
@@ -16,11 +23,14 @@ InGameScene::InGameScene()
 {
 	Reset();
 
+	player.InitTexture();
+	stage.InitTex();
 	m_Step = STEP_START_JINGLE;
 }
 
 InGameScene::~InGameScene()
 {
+	player.ReleaseTexture();
 }
 
 void InGameScene::Exec()
@@ -32,13 +42,17 @@ void InGameScene::Exec()
 	case STEP_CREAR_JINGLE:   step_ClearJingle(); break;
 	default:									  break;
 	}
+
+	camera.Update(player.GetPosX(), player.GetMoveSpeed());
+	player.Update(stage);
 }
 
 void InGameScene::Draw()
 {
-	DrawString(20, 20, "InGameScene", GetColor(0, 0, 0));
+	stage.Draw(camera);
+	player.Draw(camera);
 
-	if (IsClear())
+	if (IsClear() == true)
 	{
 		DrawString(100, 100, "Game Clear", GetColor(0, 0, 0));
 	}
@@ -64,22 +78,6 @@ void InGameScene::step_Input()
 	{
 		Reset();
 	}
-	else if ( pInputMng->IsPushed(KeyType_Up) )
-	{
-
-	}
-	else if ( pInputMng->IsPushed(KeyType_Down) )
-	{
-
-	}
-	else if ( pInputMng->IsPushed(KeyType_Left) )
-	{
-
-	}
-	else if ( pInputMng->IsPushed(KeyType_Right) )
-	{
-
-	}
 
 	if ( IsClear() )
 	{
@@ -100,14 +98,15 @@ void InGameScene::step_ClearJingle()
 // false = 未クリア
 bool InGameScene::IsClear() const
 {
-
-	return true; // @@Dummy
+	if(player.GetPosX() + MapChipSize >= FieldWidth - MapChipSize)
+	{
+		return true; // @@Dummy
+	}
+	return false;
 }
 
 void InGameScene::Reset()
 {
-	// ※外部データを読みこんだり、ステージを増やす場合は処理内容を考える必要がある
-	// コンストラクタの内容をそのままコピーして、
-	// コンストラクタではResetを呼び出しする
-
+	player.SetPos(0, 447);
+	camera.SetPos(WindowHalfWidth, WindowHalfHeight);
 }
