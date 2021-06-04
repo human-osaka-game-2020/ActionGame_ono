@@ -8,15 +8,13 @@ public:
 	SceneBase();
 	virtual ~SceneBase();
 
-	// 処理内容はクラスごとに違うので、
-	// 純粋仮想関数として宣言しておく
 	virtual void Exec() = 0;
 	virtual void Draw() = 0;
 
-	virtual bool IsEnd() const = 0; // シーンが終了したかどうかを返す
+	virtual bool IsEnd() const = 0;
 
 protected:
-	int m_Step;	// 処理内容を管理する変数
+	int m_Step;
 };
 
 #endif // !SCENE_BASE_H

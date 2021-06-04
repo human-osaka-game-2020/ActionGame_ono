@@ -2,7 +2,6 @@
 #ifndef DIFINITION_H
 #define DIFINITION_H
 
-// ウィンドウ
 static const int WindowWidth = 1024;
 static const int WindowHeight = 512;
 static const int WindowHalfWidth = WindowWidth / 2;

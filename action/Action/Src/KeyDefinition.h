@@ -13,7 +13,7 @@ enum KeyType
 	KeyType_Enter,	// 決定
 	KeyType_Reset,	// リセット
 
-	KeyType_Max		// キーの種類の数
+	KeyType_Max
 };
 
 // 対象のキーの状態
@@ -26,11 +26,9 @@ enum InputState
 	InValid		// 無効
 };
 
-
-// キーの種類に対応する、実際の入力配列
 const int KEY_ASSIGN[KeyType_Max] =
 {
-	KEY_INPUT_SPACE,		// KeyType_Up
+	KEY_INPUT_SPACE,	// KeyType_Up
 	KEY_INPUT_DOWN,		// KeyType_Down
 	KEY_INPUT_LEFT,		// KeyType_Left
 	KEY_INPUT_RIGHT,	// KeyType_Right

@@ -48,8 +48,6 @@ SceneBase* SceneManager::create_NextScene()
 	SceneBase* next = nullptr;
 	switch(m_NextSceneID)
 	{
-	// ここにそれぞれSceneBaseを継承した派生クラスをnewする処理を書く
-	// シーンの増減があってもヘッダのインクルードとここ以外に変更は必要ない
 	case SceneID_Title: next = new TitleScene(); break;
 	case SceneID_InGame: next = new InGameScene(); break;
 	case SceneID_Result: next = new ResultScene(); break;

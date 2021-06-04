@@ -16,10 +16,7 @@ public:
 	virtual bool IsEnd() const;
 
 private:
-	// タイトルロゴ入場
 	void step_LogoIn();
-
-	// 入力受付
 	void step_Input();
 };
 

@@ -18,20 +18,12 @@ public:
 	virtual bool IsEnd() const;
 
 private:
-	// 開始ジングル
 	void step_StartJingle();
-
-	// 入力受付
 	void step_Input();
-
-	// クリアジングル
 	void step_ClearJingle();
 
-// 倉庫番に関係する関数群
 private:
-	// ゲームのクリア状態
 	bool IsClear() const;
-	// 初期状態にリセット
 	void Reset();
 };
 

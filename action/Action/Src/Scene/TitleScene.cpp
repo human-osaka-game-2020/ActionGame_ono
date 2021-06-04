@@ -7,9 +7,9 @@
 
 enum
 {
-	STEP_LOGO_IN,	// ロゴ入力待ち
-	STEP_INPUT,		// 入力待ち
-	STEP_END		// シーン終了
+	STEP_LOGO_IN,
+	STEP_INPUT,
+	STEP_END
 };
 
 TitleScene::TitleScene()
@@ -44,13 +44,11 @@ bool TitleScene::IsEnd() const
 	return ( m_Step == STEP_END );
 }
 
-// ロゴ入場
 void TitleScene::step_LogoIn()
 {
 	m_Step = STEP_INPUT;
 }
 
-// 入力受付
 void TitleScene::step_Input()
 {
 	InputManager* pInputMng = InputManager::GetInstance();

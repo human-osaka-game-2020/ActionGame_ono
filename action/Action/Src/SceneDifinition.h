@@ -10,7 +10,7 @@ enum SceneID
 
 
 	SceneID_Max,
-	SceneID_Invalid // –³Œø’l
+	SceneID_Invalid
 };
 
 #endif // !SCENEDIFINITION_H

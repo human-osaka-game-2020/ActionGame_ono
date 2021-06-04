@@ -25,13 +25,6 @@ void ResultScene::Exec()
 	case STEP_INPUT:   step_Input();  break;
 	default:						  break;
 	}
-
-	// @@Dummy 遷移確認用の仮処理
-	/*m_Step++;
-	if (m_Step >= 120)
-	{
-		SceneManager::GetInstance()->SetNextScene(SceneID_Title);
-	}*/
 }
 
 void ResultScene::Draw()
@@ -44,7 +37,6 @@ void ResultScene::Draw()
 
 bool ResultScene::IsEnd() const
 {
-	// @@Dummy 遷移確認用の仮処理
 	return (m_Step == STEP_END);
 }
 

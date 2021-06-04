@@ -14,9 +14,9 @@ static Camera camera;
 enum
 {
 	STEP_START_JINGLE,
-	STEP_INPUT,		// 入力待ち
+	STEP_INPUT,
 	STEP_CREAR_JINGLE,
-	STEP_END		// シーン終了
+	STEP_END
 };
 
 InGameScene::InGameScene()
@@ -60,17 +60,14 @@ void InGameScene::Draw()
 
 bool InGameScene::IsEnd() const
 {
-	// @@Dummy 遷移確認用の仮処理
 	return ( m_Step == STEP_END );
 }
 
-// 開始ジングル待ち
 void InGameScene::step_StartJingle()
 {
 	m_Step = STEP_INPUT;
 }
 
-// 入力待ち
 void InGameScene::step_Input()
 {
 	InputManager* pInputMng = InputManager::GetInstance();
@@ -85,17 +82,12 @@ void InGameScene::step_Input()
 	}
 }
 
-// 
 void InGameScene::step_ClearJingle()
 {
 	m_Step = STEP_END;
 	SceneManager::GetInstance()->SetNextScene(SceneID_Result);
 }
 
-
-// ゲームのクリア判定
-// true  = クリアしている
-// false = 未クリア
 bool InGameScene::IsClear() const
 {
 	if(player.GetPosX() + MapChipSize >= FieldWidth - MapChipSize)
